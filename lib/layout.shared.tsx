@@ -1,12 +1,41 @@
-import type { BaseLayoutProps } from 'fumadocs-ui/layouts/shared';
-import { appName, gitConfig } from './shared';
+import { LanguageSwitch } from '@/components/languange-switch';
+import Image from 'next/image';
+import { gitConfig } from '@/lib/shared';
 
-export function baseOptions(): BaseLayoutProps {
+export function baseOptions(): any {
   return {
     nav: {
-      // JSX supported
-      title: appName,
+      transparentMode: "always",
+      title: (
+        <div className="flex items-center gap-2">
+          <Image
+            src="/images/finteen.png"
+            alt="Logo FinTeen"
+            width={30}
+            height={30}
+            className="rounded-sm"
+          />
+          <span className="font-bold text-lg tracking-tight">FinTeen</span>
+        </div>
+      ),
+      children: (
+        <div
+          className="hidden md:flex flex-1 justify-end items-center"
+          data-navbar-switcher
+        >
+          <LanguageSwitch />
+        </div>
+      ),
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
+    sidebar: {
+      footer: (
+        <div className="md:hidden p-2" data-sidebar-switcher>
+          <LanguageSwitch />
+        </div>
+      ),
+    },
+    links: [],
+    i18n: false, 
   };
 }

@@ -11,6 +11,10 @@ const { rewrite: rewriteSuffix } = rewritePath(
   `${docsContentRoute}{/*path}/content.md`,
 );
 
+// if (pathname === "/") {
+//   return NextResponse.redirect(new URL("/id/docs", request.nextUrl));
+// }
+
 export default function proxy(request: NextRequest) {
   const result = rewriteSuffix(request.nextUrl.pathname);
   if (result) {
