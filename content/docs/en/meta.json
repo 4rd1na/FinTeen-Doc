@@ -6,13 +6,6 @@
         "overview",
         "---USER GUIDE---",
         "registration",
-        "login",
-        "setup-profile",
-        "---MENU---",
-        "dashboard",
-        "(transaction)",
-        "(debt-simulation)",
-        "(savings)",
-        "(analysis-and-insights)"
+        "login"
     ]
 }
