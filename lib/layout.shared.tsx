@@ -18,14 +18,6 @@ export function baseOptions(): any {
           <span className="font-bold text-lg tracking-tight">FinTeen</span>
         </div>
       ),
-      children: (
-        <div
-          className="hidden md:flex flex-1 justify-end items-center"
-          data-navbar-switcher
-        >
-          <LanguageSwitch />
-        </div>
-      ),
     },
     githubUrl: `https://github.com/${gitConfig.user}/${gitConfig.repo}`,
     sidebar: {
@@ -35,7 +27,16 @@ export function baseOptions(): any {
         </div>
       ),
     },
-    links: [],
+    links: [
+      {
+        type: "custom",
+        children: (
+          <div className="hidden md:block">
+            <LanguageSwitch />
+          </div>
+        ),
+      },
+    ],
     i18n: false, 
   };
 }
